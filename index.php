@@ -22,10 +22,10 @@
             <a class="navbar-brand" href="#">Danki Code</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Cadastrar Equipe</a></li>
-              <li><a href="sobre">Editar Sobre</a></li>
-              <li><a href="equipe">Gerenciar Equipe</a></li>
+            <ul id="menu-principal" class="nav navbar-nav">
+              <li class="active"><a ref_sys="sobre" href="#">Editar Sobre</a></li>
+              <li><a ref_sys="cadastrar_equipe" href="#about">Cadastrar Equipe</a></li>
+              <li><a ref_sys="lista_equipe" href="#contact">Lista Equipe</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             <li><a href="?sair"><span class="glyphicon glyphicon-off"></span> Sair!</a></li>
@@ -61,9 +61,10 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="#" class="list-group-item active cor-padrao"><span class="glyphicon glyphicon-home"></span> Home</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> Sobre</a>
-              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> Equipe <span class="badge">2</span></a>
+              
+              <a href="#" class="list-group-item active cor-padrao" ref_sys="sobre" ><span class="glyphicon glyphicon-pencil"></span> Sobre</a>
+              <a href="#" class="list-group-item" ref_sys="cadastrar_equipe"><span class="glyphicon glyphicon-pencil"></span> Cadastrar Equipe</a>
+              <a href="#" class="list-group-item" ref_sys="lista_equipe"><span class="glyphicon glyphicon-list-alt"></span> Lista Equipe <span class="badge">2</span></a>
             </div>
           </div>
           <div class="col-md-9">
@@ -108,23 +109,22 @@
                   <table class="table">
                     <thead>
                       <tr>
-                      <th>ID:</th>
+                        <th>ID:</th>
                         <th>Nome do membro</th>
+                        <th>#</th>
                       </tr>
                     </thead>
                     <tbody>
+                    <?php
+                      for($i = 0 ; $i < 5; $i++){
+                        ?>
                       <tr>
                         <td>1</td>
                         <td>Guilherme</td>
+                        <td><button type="button" class="btn btn-sm btn-danger"><span class=" glyphicon glyphicon-trash"></span> Excluir</button></td>
                       </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Guilherme</td>
-                      </tr>
-                      <tr>
-                        <td>1</td>
-                        <td>Guilherme</td>
-                      </tr>                                            
+                      <?php } ?>
+                                                               
                     </tbody>
                   </table>
                 </div>
@@ -139,5 +139,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        cliqueMenu();
+        function cliqueMenu(){
+          $('#menu-principal a, .list-group a').click(function(){
+            $('.list-group a').removeClass('active').removeClass('cor-padrao');
+            $('#menu-principal a').parent().removeClass('active');
+            $('#menu-principal a[ref_sys='+$(this).attr('ref_sys')+']').parent().addClass('active');
+            $('.list-group a[ref_sys='+$(this).attr('ref_sys')+']').addClass('active').addClass('cor-padrao');
+            return false;
+          })
+        }
+
+    })
+    </script>
   </body>
 </html>

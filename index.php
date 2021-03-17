@@ -48,6 +48,93 @@
       </div>
     </header>
 
+    <section class="bread">
+      <div class="container">
+        <ol class="breadcrumb">
+          <li class="active">Home</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="principal">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="list-group">
+              <a href="#" class="list-group-item active cor-padrao"><span class="glyphicon glyphicon-home"></span> Home</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> Sobre</a>
+              <a href="#" class="list-group-item"><span class="glyphicon glyphicon-pencil"></span> Equipe <span class="badge">2</span></a>
+            </div>
+          </div>
+          <div class="col-md-9">
+            <div class="panel panel-default">
+                <div class="panel-heading cor-padrao">
+                  <h3 class="panel-title">Sobre</h3>
+                </div>
+                <div class="panel-body">
+                <form action="/action_page.php">
+                  <div class="form-group">
+                    <label for="email">Código HTML</label>
+                    <textarea style="height: 140px; resize: vertical;"  class="form-control"></textarea>
+                  </div>  
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading cor-padrao">
+                  <h3 class="panel-title">Cadastrar Equipe:</h3>
+                </div>
+                <div class="panel-body">
+                <form>
+                   <div class="form-group">
+                    <label for="email">Nome do membro:</label>
+                    <input type="text" name="nome_membro"class="form-control" />
+                  </div>              
+                  <div class="form-group">
+                    <label for="email">Descrição do membro:</label>
+                    <textarea style="height: 140px; resize: vertical;"  class="form-control"></textarea>
+                  </div>  
+
+                  <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading cor-padrao">
+                  <h3 class="panel-title">Membros da equipe</h3>
+                </div>
+                <div class="panel-body">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                      <th>ID:</th>
+                        <th>Nome do membro</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Guilherme</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>Guilherme</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>Guilherme</td>
+                      </tr>                                            
+                    </tbody>
+                  </table>
+                </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

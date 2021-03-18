@@ -151,7 +151,7 @@
                       <tr>
                         <td><?php echo $value['id'] ?></td>
                         <td><?php echo $value['nome'] ?></td>
-                        <td><button type="button" class="btn btn-sm btn-danger"><span class=" glyphicon glyphicon-trash"></span> Excluir</button></td>
+                        <td><button id_membro="<?php echo $value['id']; ?>" type="button" class="deletar-membro btn btn-sm btn-danger"><span class=" glyphicon glyphicon-trash"></span> Excluir</button></td>
                       </tr>
                       <?php } ?>
                                                                
@@ -195,6 +195,22 @@
           });
 
         }
+
+        $('button.deletar-membro').click(function(){
+          var id_membro = $(this).attr('id_membro');
+          var el = $(this).parent().parent();
+          $.ajax({
+            method:'post',
+            data:{'id_membro':id_membro},
+            url:'deletar.php'
+          }).done(function(){
+            el.fadeOut(function(){
+            el.remove();
+            });
+          })
+
+
+        })
 
     })
     </script>
